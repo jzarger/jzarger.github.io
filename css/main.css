@@ -1,0 +1,117 @@
+
+.about-title {
+    font-size: 1.75em
+}
+
+.about-subtitle {
+    font-size: 1.25em
+}
+
+.job-title{
+    font-size: 1.5em
+}
+
+body { padding-top: 1em; }
+
+.bordered{
+
+    outline: 1px solid #428bca;
+    margin: 1em;
+}
+
+.button-aligned{
+    text-align: left
+}
+
+.progress-label {
+    float: left;
+    margin-right: 1em;
+}
+
+.anchor { 
+    padding-top: 2.25em; 
+}
+
+/*.anchor-project { 
+    padding-top: 2.25em; 
+}*/
+
+.anchor-project  {
+    display: block;
+    position: relative;
+    top: -5em;
+    visibility: hidden;
+}
+
+.target {
+   position: relative;
+   border-top: 70px solid transparent;
+   margin: -30px 0 0;
+   -webkit-background-clip: padding-box;
+   -moz-background-clip: padding;
+   background-clip: padding-box;
+}
+
+.target:before {
+   content: "";
+   position: absolute;
+   top: -2px;
+   left: 0;
+   right: 0;
+   border-top: 2px solid #ccc;
+}
+
+hr {
+    height: 1px;
+    background-color:#aeaeae;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    width: 100%;
+}
+
+.page-header{
+    background-color:#337ab7;
+    color: white;
+}
+
+.btn-default-inv {
+  color: #333;
+  background-color: #eeeeee;
+  border-color: #8c8c8c;
+}
+.btn-default-inv:focus,
+.btn-default-inv.focus {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #ccc;
+}
+.btn-default-inv:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #ccc;
+}
+.btn-default-inv:active,
+.btn-default-inv.active,
+.open > .dropdown-toggle.btn-default-inv {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.btn-default-inv:active:hover,
+.btn-default-inv.active:hover,
+.open > .dropdown-toggle.btn-default-inv:hover,
+.btn-default-inv:active:focus,
+.btn-default-inv.active:focus,
+.open > .dropdown-toggle.btn-default-inv:focus,
+.btn-default-inv:active.focus,
+.btn-default-inv.active.focus,
+.open > .dropdown-toggle.btn-default-inv.focus {
+  color: #333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+.btn-default-inv:active,
+.btn-default-inv.active,
+.open > .dropdown-toggle.btn-default-inv {
+  background-image: none;
+}
