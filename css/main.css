@@ -74,6 +74,10 @@ hr {
     color: white;
 }
 
+ .panel-body  {
+    word-break:break-all
+}
+
 .navbar-header .nav-icons {
   padding-top: 12px;
   position: absolute;
