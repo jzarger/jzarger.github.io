@@ -78,6 +78,8 @@ hr {
     word-break:break-all
 }
 
+.thumbnail img { min-height:100px !important; height:100px;}
+
 .navbar-header .nav-icons {
   padding-top: 12px;
   position: absolute;
