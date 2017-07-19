@@ -1,5 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script>
+        // store the hash (DON'T put this code inside the $() function, it has to be executed 
+        // right away before the browser can start scrolling!
+        /*var target = window.location.hash,
+        target = target.replace('#', '');
+
+        // delete hash so the page won't scroll to it
+        window.location.hash = "";  
+      
+      
+        // now whenever you are ready do whatever you want
+        // (in this case I use jQuery to scroll to the tag after the page has loaded)
+        $(window).load(function() {
+            if (target) {
+                $('html, body').animate({
+                    scrollTop: $("#" + target).offset().top
+                }, 700, 'swing', function () {});
+            }
+        });*/
+    </script>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +38,7 @@
     <link rel="stylesheet" href="fancybox/dist/jquery.fancybox.min.css"/>
     <script src="fancybox/dist/jquery.fancybox.min.js"></script>
       
-      
+    
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>-->
       
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -1738,6 +1758,10 @@
     <script src="js/bootstrap.min.js"></script>
     
       
-      
+      <script>
+    if (location.hash) {
+        location.href = location.hash;
+    }
+    </script>
   </body>
 </html>
