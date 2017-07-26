@@ -1771,7 +1771,7 @@
     function preload() {
         for (var i = 0; i < arguments.length; i++) {
             images[i] = new Image();
-            images[i].src = preload.arguments[i];
+            images[i].src = "/" + preload.arguments[i];
         }
     }
 
@@ -1779,7 +1779,7 @@
 preload(
     "project-files/eecs373/project.jpg",
     "project-files/eecs373/top.png",
-   " project-files/eecs373/project.gif",
+   "project-files/eecs373/project.gif",
     "project-files/eecs373/Component%20Diagram%20(2).png",
     "project-files/eecs498/project0.gif",
     "project-files/eecs498/project1.gif",
