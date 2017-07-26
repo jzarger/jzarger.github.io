@@ -1766,6 +1766,61 @@
         
     </div>
 
+  <script>
+    var images = [];
+    function preload() {
+        for (var i = 0; i < arguments.length; i++) {
+            images[i] = new Image();
+            images[i].src = preload.arguments[i];
+        }
+    }
+
+//-- usage --//
+preload(
+    "project-files/eecs373/project.jpg",
+    "project-files/eecs373/top.png",
+   " project-files/eecs373/project.gif",
+    "project-files/eecs373/Component%20Diagram%20(2).png",
+    "project-files/eecs498/project0.gif",
+    "project-files/eecs498/project1.gif",
+      "project-files/eecs498/project2.jpg",
+      "project-files/eecs452/IMG_3269.JPG",
+      "project-files/eecs452/hardware_mech.png",
+      "project-files/eecs452/control_mech.png",
+      "project-files/hybrid2/20160316_165130.jpg",
+      "project-files/hybrid2/20151206_145002.jpg",
+      "project-files/hybrid2/top_labeled.PNG",
+      "project-files/hybrid2/architecture_cdr2.PNG",
+      "project-files/hackerboard/20160220_022749.jpg",
+      "project-files/hackerboard/20161006_190515.jpg",
+      "project-files/hackerboard/20160218_224440.jpg",
+      "project-files/hackerboard/20160218_231227.jpg",
+      "project-files/hackerboard/20160220_022717.jpg",
+      "project-files/aero450quad/4-19-7%20waypoints.jpg"
+      "project-files/aero450quad/4-19-1%20dataset_7.jpg",
+      "project-files/eecs460/stair.png",
+      "project-files/eecs460/step.png",
+      "project-files/eecs460/square.png",
+      "project-files/aero450tablesat/tsat2.PNG",
+      "project-files/aero450tablesat/rate.PNG",
+      "project-files/aero450tablesat/pointing.PNG",
+      "project-files/masainstr/boards.jpg",
+      "project-files/masainstr/test_bench_overview.PNG",
+      "project-files/arclight/20150811_224146.jpg",
+      "project-files/arclight/20150927_205242.jpg",
+      "project-files/arclight/20150601_205228.gif",
+      "project-files/hybrid1/board.jpg",
+      "project-files/hybrid1/interface.PNG",
+      "project-files/engr100/blimp.jpg",
+      "project-files/engr100/Electronics.png",
+      "project-files/engr100/flow.png",
+      "project-files/engr100/Full%20Sketch%20V3%20Model%20(2).png",
+      "project-files/eagle/shelter.jpg",
+      "project-files/eagle/sandbox.jpg",
+      "project-files/eagle/shelter_construction.jpg",
+      "project-files/eagle/bones.jpg"
+)   
+</script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
