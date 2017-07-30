@@ -33,9 +33,14 @@
 
 </script>
     
+
+    
 </head>
 
-<nav class="navbar navbar-default navbar-fixed-top">
+
+<body>
+    
+    <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         
@@ -104,8 +109,18 @@
     <!-- /.container-fluid -->
 </nav>
 
-
-<body>
+    <!--
+    <div id="side-nav">
+      <ul class="nav navbar-fixed-side nav-list affix">
+        <li><a href="#one">One</a></li>
+        <li><a href="#two">Two</a></li>
+        <li><a href="#three">Three</a></li>
+        <li><a href="#four">Four</a></li>
+        <li><a href="#five">Five</a></li>
+      </ul>
+    </div>
+    -->
+    
     <div class="page-header">
       
         <div class="container">
@@ -114,12 +129,17 @@
         </div>
         
     </div>
+
+
     <div class="container">
         
-
+        <div class="row">
+        <div class="col-sm-10">
+        
+        <section id="about" class="group">
         <div class="row">
         
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <div class="row">
 
                     <div class="col-sm-12 col-sm-offset-1">
@@ -167,7 +187,7 @@
             <hr style="margin-top:1em;margin-bottom:.5em">
             </div>
             
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="row">
 
                     <div class="col-sm-12">
@@ -266,10 +286,11 @@
         </div>
         
         <hr style="margin-top:1em;margin-bottom:3em">
-        
+        </section>
+        <section id="work" class="group">
         <div class="row">
 
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <id class="about-title"><b>Work Experience </b></id>
             </div>
             <div class="col-md-2">
@@ -368,7 +389,8 @@
         <!--</div>-->
 
         <hr />
-
+        </section>
+        <section id="skills" class="group">
         <div class="row">
 
             <div class="col-sm-2">
@@ -969,6 +991,8 @@
         </div>
 
         <hr />
+        </section>
+        <section id="edu" class="group">
         <div class="row">
 
             <div class="col-sm-3">
@@ -1013,6 +1037,8 @@
         
         
         <hr />
+        </section>
+        <section id="projects" class="group">
         <div class="row">
 
             <div class="col-sm-3">
@@ -1369,7 +1395,8 @@
         
         
         <hr />
-        
+        </section>
+        <section id = "involvement" class="group">
         <div class="row">
 
             <div class="col-sm-3">
@@ -1467,10 +1494,11 @@
 
 
         <hr />
-    </div>
+        </section>
+        <section id="timeline" class="group">
     
     <!-- https://www.bootply.com/sXQ6tveRH6# -->
-    <div class="container">
+    
 
         <div class="row">
 
@@ -1551,6 +1579,53 @@
         </li>
         
     </ul>
+    </section>    
+        
+        
+        
+    </div>
+            
+            
+    <nav class="col-sm-2 bs-docs-sidebar">
+    <ul id="sidebar" class="nav nav-stacked">
+      <li>
+        <a href="#about">About</a>
+        
+      </li>
+      <li>
+        <a href="#work">Work</a>
+        
+      </li>
+      <li>
+        <a href="#skills">Skills</a>
+      </li>
+      <li>
+        <a href="#edu">Education</a>
+      </li>
+      <li>
+        <a href="#projects">Projects</a>
+      </li>
+      <li>
+        <a href="#involvement">Involvement</a>
+      </li>
+      <li>
+        <a href="#timeline">Timeline</a>
+      </li>
+    </ul>
+  </nav>
+            
+    </div>
+        
+        
+    <!--<li>
+        <a href="#skills">Skills</a>
+        <ul class="nav nav-stacked">
+          <li><a href="#GroupCSub1">Sub-Group 1</a></li>
+          <li><a href="#GroupCSub2">Sub-Group 2</a></li>
+        </ul>
+      </li>-->
+        
+        
 </div>
     
     <footer class="footer navbar-fixed-bottom">
@@ -1564,6 +1639,21 @@
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script>
+    
+$('body').scrollspy({
+  target: '.bs-docs-sidebar',
+  offset: 40
+});
+    </script>
+    <script>
+$("#sidebar").affix({
+  offset: {
+    top: 60
+  }
+});
+    
+</script>
 </body>
 
 </html>
