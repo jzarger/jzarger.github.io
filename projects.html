@@ -98,6 +98,7 @@
         <li><a href="edu.html">Education</a></li>
         <li class="active"><a href="projects.html">Projects<span class="sr-only">(current)</span></a></li>
       </ul>
+        
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav><a id="top" class="anchor-project"></a>
@@ -140,6 +141,18 @@
             
             
             <div class="list-group">
+                <a href= "#space584" class="list-group-item list-group-item-info">
+                High Altitude Balloon Controller <span class="badge pull-right">January 2018-April 2018</span>
+                </a>
+                <a href= "#eecs561" class="list-group-item">
+                Digital Controller for a Segway <span class="badge pull-right">February 2018-April 2018</span>
+                </a>
+                <a href= "#eecs473" class="list-group-item list-group-item-info">
+                Helmet Sensor Computer Input Controller <span class="badge pull-right">September 2017-December 2017</span>
+                </a>
+                <a href= "#cars" class="list-group-item">
+                Lidar Point Cloud Visualization <span class="badge pull-right">November 2017-December 2017</span>
+                </a>
                 <!--
                 <a href="#devboard" class="list-group-item">
                 General Purpose Microcontroller/FPGA System <span class="badge pull-right">May 2017-Present</span>
@@ -201,13 +214,451 @@
             </div>
             
         </div>
+        
+            
         <hr />
-       
         <div class="row">
         <div class="col-sm-12"><a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top <i class="fa fa-arrow-up" aria-hidden="true"></i></a></div>
         </div>
         
-        <!--
+        <a id="space584" class="anchor-project"></a>
+        <div class="panel panel-default">
+             <div class="panel-heading">
+                <h3>
+            <b>High Altitude Balloon Controller</b><span class="badge pull-right">January 2018-April 2018</span>
+            </h3>   
+
+            </div>
+            <ul class="list-group">
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Project Overview</b></h4>
+                    <p class="list-group-item-text">The final project for SPACE 584, Space Instrumentation, was to launch a high altitude balloon and collect telemetry data. To collect telemetry, we needed to use a microcontroller and design a printed circuit board for interfacing. We had to perform thermal, shock, and endurance testing on the telemetry device and housing.</p>
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Hardware Overview</b></h4>
+                    <p class="list-group-item-text">We used an Atmel SAMD21 microcontroller as the sensor sampling and data logging controller. It was connected to a barometer over SPI, a humidity sensor over I2C, a 9-degree of freedom inertial measurement unit over SPI, a GPS module over UART, a battery level sensor through analog input, a board temperature sensor through analog input, and an external thermistor through analog inpit. It also had two drive circuits for powering two 5W heaters. Power was provided to the microcontroller and sensors by stepping down the battery through a buck converter. The microcontroller was also connected to a SD card for data logging. A footprint for a radio was added for a future live teletry option, but the radio ended up not having enough power to transmit over our desired range (the datasheet said it was 1W, it ended up being closer to 250mW).</p>
+                    
+                    
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Software Overview</b></h4>
+                    <p class="list-group-item-text">The software implementation was written in the Arduino infrasturcture to speed up the development process. The Arduino language is a mix of C and C++. The code ran in a super-loop architecture, where each sampling task was serviced at a specified interval. A sample for a time instance was placed in a struct and then pushed to the SD card with a time slice in a binary format with a checksum. Once the data was logged, we had a set of Python scripts to convert the logged binary data to a CSV file, that was then processed and plotted with MATLAB.</p>
+                    
+                    
+                </li>
+                
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>My Contributions</b></h4>
+                    <p class="list-group-item-text">I collaborated on the architecture design and schematic design, did the board assembly and hardware debugging, wrote the microcontroller code, and wrote the data post-processing scripts.</p>
+                    
+                    
+                </li>
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Files</b></h4>
+                    
+                    <div class="row">
+                    
+                    
+                    <div class="col-sm-3">
+                    <a href="project-files/space584/final-report-space.pdf">Final Report <i class="fa fa-microchip" aria-hidden="true"></i></a>    
+                    </div>
+                    
+                    </div>
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Pictures</b></h4>
+                    
+                    <div class="row align-items-center">
+                        
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/space584/hardware_arch.PNG">
+                                <img src="project-files/space584/hardware_arch.PNG"></a>
+                                <div class="caption">Controller Hardware Architecture</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/space584/20180405_150807.jpg">
+                                <img src="project-files/space584/20180405_150807.jpg"></a>
+                                <div class="caption">Assembled Printed Circuit Board</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/space584/flight_temp.png">
+                                <img src="project-files/space584/flight_temp.png"></a>
+                                <div class="caption">Temperature over phases of flight</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/space584/flight_pressure.png">
+                                <img src="project-files/space584/flight_pressure.png"></a>
+                                <div class="caption">Pressure over phases of flight</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/space584/flight_alt.png">
+                                <img src="project-files/space584/flight_alt.png"></a>
+                                <div class="caption">Altitude over phases of flight</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </li>
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Failures and Lessons Learned</b></h4>
+                    <p class="list-group-item-text">During the design of the printed circuit board, we made a few minor mistakes. The first was a mis-reading of the analog power bus datasheet. We assumed we could power the analog subsystem with one voltage and then provide a separate external precision reference, as we were doing with similar projects using an STM32 microcontroller. However, once we realized the microcontroller wouldn't boot, we found a note in the datasheet stating the system voltage and the reference voltage needed to be the same. A minor wire jump and a trace cut fixed the problem. We also made a footprint mistake on the barometer wiring (we configured it for I2C but connected it to the microcontroller for SPI), which required a much more involved modification to fix (and a lot of epoxy to hold it down for flight). In the thermistor circuit, we had an issue where the harness connecting to the microcontroller was the perfect length to act as an antenna for the 144MHz tracker radio. We mitigated the noise injection by twisting the wires in the harness and removing the artifacts in software.</p>
+                    
+                </li>
+                
+                
+            </ul>
+            
+        </div>
+            
+            
+        <hr />
+        <div class="row">
+        <div class="col-sm-12"><a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top <i class="fa fa-arrow-up" aria-hidden="true"></i></a></div>
+        </div>
+        
+        <a id="eecs561" class="anchor-project"></a>
+        <div class="panel panel-default">
+             <div class="panel-heading">
+                <h3>
+            <b>Digital Segway Controller</b><span class="badge pull-right">March 2018-April 2018</span>
+            </h3>   
+
+            </div>
+            <ul class="list-group">
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Project Overview</b></h4>
+                    <p class="list-group-item-text">As a final project for EECS 561, Digital Control Design, we were asked to choose a real world system and create a digital controller around it. My team chose a segway, as it seemed like a complex and interesting system. The model included segway dynamics and motor dynamics. To keep the scope of the problem bounded, we chose to only model and control the segway in one dimension. We created an architecture for the angle of the segway (how far the handle bar is from vertical) and for the change in lateral position of the segway. Our final project report is attached at the bottom of this section.</p>
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Control Overview</b></h4>
+                    <p class="list-group-item-text">We architected two controllers for this project. The first was an inner loop/outer loop controller, where segway angle was the inner loop and lateral position was the outer loop. The second was a full-state feedback LQR controller with an integrator augment and estimator for disturbance rejection. Process noise, measurement noise, and step disturbances were added to this model to test robustness. Full-state feedback was required for this model to accomodate significant deficiencies in the model we found, and the estimator was designed with pole placement for the same reason.</p>
+                    
+                    
+                </li>
+                
+                
+                
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>My Contributions</b></h4>
+                    <p class="list-group-item-text">I lead the architecture design for both controllers, and then implemented and tuned the full state feedback controller.</p>
+                    
+                    
+                </li>
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Files</b></h4>
+                    
+                    <div class="row">
+                    
+                    
+                    <div class="col-sm-3">
+                    <a href="project-files/eecs561/mecheng-561-final.pdf">Final Report <i class="fa fa-microchip" aria-hidden="true"></i></a>    
+                    </div>
+                    
+                    </div>
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Pictures</b></h4>
+                    
+                    <div class="row align-items-center">
+                        
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/eecs561/simulink_lqr.PNG">
+                                <img src="project-files/eecs561/simulink_lqr.PNG"></a>
+                                <div class="caption">Simulink model of plant and state feedback design</div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/eecs561/figure1_lqr.png">
+                                <img src="project-files/eecs561/figure1_lqr.png"></a>
+                                <div class="caption">Step response and torque disturbance response</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </li>
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Failures and Lessons Learned</b></h4>
+                    <p class="list-group-item-text">Many of the issues we faced during the course of this project were due to issues with the model. Trusting that it was correct because it was in a published paper was a mistake on our part.</p>
+                    
+                </li>
+                
+                
+            </ul>
+            
+        </div>
+            
+        <hr />
+        <div class="row">
+        <div class="col-sm-12"><a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top <i class="fa fa-arrow-up" aria-hidden="true"></i></a></div>
+        </div>
+        
+        <a id="eecs473" class="anchor-project"></a>
+        <div class="panel panel-default">
+             <div class="panel-heading">
+                <h3>
+            <b>Head Sensor Suite</b><span class="badge pull-right">September 2017-December 2017</span>
+            </h3>   
+
+            </div>
+            <ul class="list-group">
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Project Overview</b></h4>
+                    <p class="list-group-item-text">The final project of EECS 473: Advanced Embedded Systems, required the creation of a device that could serve a meaningful purpose that used a microcontroller. My team decided to create a head-worn device that could provide alternative control input into a computer instead of using a mouse. We wanted to test a variety of sensor inputs; head/eye tracking, sound control, inertial control, and electromyography event control.</p>
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Hardware Overview</b></h4>
+                    <p class="list-group-item-text">The project was the combination of several pieces of hardware. The primary control computer was a Raspberry Pi single board computer running Linux. This board interfaced with the video and microphone systems. The Raspberry Pi interfaced with a custom printed circit board data acquisition and processing board that had analog circuitry for the electromyograpy electrodes and a connection to the SPI controlled inertial measurement unit. THe sampling and data control was performed with an STM32M7 family microcontroller. The schematic in the Files section describes this printed circuit board.</p>
+                    
+                    
+                </li>
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Software Overview</b></h4>
+                    <p class="list-group-item-text">My focus on the project was the electromyography and the inertial sensing. For the electromyograpy signals, a logistic regression based classifier was trained on the desired events and the trained results were used to capture muscle motion events in read time to trigger mouse motion. The inertial sensing used a simple threshold around a deadzone on the X and Y acceleration axes to determine how much mouse motion should occur.</p>
+                    
+                    
+                </li>
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>My Contributions</b></h4>
+                    <p class="list-group-item-text">I did the design, prototyping and test of the electromyography circuit. I did the part selection, schematic capture, prototyping, board layout, assembly, debugging and verification of the printed circuit board. I did the initial microcontroller testing. I developed, analyzed, and tested the logistic regression based classifier (as well as an unusable subspace learning classifier) for the electromyography event detection.</p>
+                    
+                    
+                </li>
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Files</b></h4>
+                    
+                    <div class="row">
+                    
+                    <div class="col-sm-3">
+                    <a href="project-files/eecs473/schematic.pdf">Electrical Schematic <i class="fa fa-map" aria-hidden="true"></i></a>    
+                    </div>
+                    <div class="col-sm-3">
+                    <a href="project-files/eecs473/artwork.pdf">PCB Layout <i class="fa fa-microchip" aria-hidden="true"></i></a>    
+                    </div>
+                    
+                    </div>
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Pictures</b></h4>
+                    
+                    <div class="row align-items-center">
+                        
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/eecs473/3d.png">
+                                <img src="project-files/eecs473/3d.png"></a>
+                                <div class="caption">3D CAD of board</div>
+                            </div>
+                        </div>
+                        
+                          <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/eecs473/overview.PNG">
+                                <img src="project-files/eecs473/overview.PNG"></a>
+                                <div class="caption">System level block diagram</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/eecs473/board.PNG">
+                                <img src="project-files/eecs473/board.PNG"></a>
+                                <div class="caption">Placement summary of board</div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/eecs473/emg_sch.PNG">
+                                <img src="project-files/eecs473/emg_sch.PNG"></a>
+                                <div class="caption">Block diagram of electromyography analog circuitry</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/eecs473/emg.png">
+                                <img src="project-files/eecs473/emg.png"></a>
+                                <div class="caption">Sample (early testing) classification of electromyography events</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/eecs473/20171211_163512.jpg">
+                                <img src="project-files/eecs473/20171211_163512.jpg"></a>
+                                <div class="caption">Bottom of board</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </li>
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Failures and Lessons Learned</b></h4>
+                    <p class="list-group-item-text">I made a bad assumption about part availibility, and ended up having to choose a different microcontroller model at the very last minute. This change necessitated re-doing a significant chunk of the schematic and board layout.
+                    </p>
+                    <p class="list-group-item-text">We also discovered significant issues working with the electromyography probes. I didn't build in an adequate front end for common mode dissipation, and we had issues with the probes making poor (or no) contact with the face. We eventually mitigated these with software and with careful practice attaching the electrodes.</p>
+                </li>
+                
+                
+            </ul>
+            
+        </div>
+            
+        <hr />
+        <div class="row">
+        <div class="col-sm-12"><a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top <i class="fa fa-arrow-up" aria-hidden="true"></i></a></div>
+        </div>
+        
+        <a id="cars" class="anchor-project"></a>
+        <div class="panel panel-default">
+             <div class="panel-heading">
+                <h3>
+            <b>Lidar Point Cloud Visualization</b><span class="badge pull-right">November 2017-December 2017</span>
+            </h3>   
+
+            </div>
+            <ul class="list-group">
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Project Overview</b></h4>
+                    <p class="list-group-item-text">In MECHENG 599: Self-Driving Cars, the final project involved using deep learning to count the number of cars in sets of camera images generated from the course staff from a video game. An optional section stage of the project involved image segmentation of the cars with an estimate of their distance. A lidar point could was provided with the same timestamp as a camera image to provide supplemental information. Our teams proposed solution involved projecting the lidar point cloud into the camera frame and generating a filled depth map in the same resolution of the camera to train on.</p>
+                </li>
+                
+
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Project Motivation</b></h4>
+                    <p class="list-group-item-text">Text Here</p>
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Software Overview</b></h4>
+                    <p class="list-group-item-text">Text Here</p>
+                    
+                    
+                </li>
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>My Contributions</b></h4>
+                    <p class="list-group-item-text">Text here</p>
+                    
+                    
+                </li>
+                
+                
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Pictures</b></h4>
+                    
+                    <div class="row align-items-center">
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/cars/0059_depth_map_grayscale.png">
+                                <img src="project-files/cars/0059_depth_map_grayscale.png"></a>
+                                <div class="caption">Depth Map Example 1</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/cars/0059_image.jpg">
+                                <img src="project-files/cars/0059_image.jpg"></a>
+                                <div class="caption">Camera Image Example 1</div>
+                            </div>
+                        </div>
+                          
+                        
+                    
+                    </div>
+                    
+                    
+                    <div class="row align-items-center">
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/cars/0073_depth_map_grayscale.png">
+                                <img src="project-files/cars/0073_depth_map_grayscale.png"></a>
+                                <div class="caption">Depth Map Example 2</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/cars/0073_image.jpg">
+                                <img src="project-files/cars/0073_image.jpg"></a>
+                                <div class="caption">Camera Image Example 2</div>
+                            </div>
+                        </div>
+                          
+                        
+                 
+                    </div>
+                </li>
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Failures and Lessons Learned</b></h4>
+                    <p class="list-group-item-text">Text here</p>
+                </li>
+                
+                
+            </ul>
+            
+        </div>
+            
+       <!--
+        <div class="row">
+        <div class="col-sm-12"><a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top <i class="fa fa-arrow-up" aria-hidden="true"></i></a></div>
+        </div>
+        
+        
         <section id="devboard" class="group">
         <div class="panel panel-default">
              <div class="panel-heading">
@@ -1772,6 +2223,22 @@
             
         <nav class="col-sm-2 bs-docs-sidebar">
         <ul id="sidebar" class="nav nav-stacked">
+          <li>
+            <a href="#space584">High Altitude Balloon Controller</a>
+
+          </li>
+          <li>
+            <a href="#eecs561">Digital Segway Controller</a>
+
+          </li>
+          <li>
+            <a href="#eecs473">Head Sensor Suite</a>
+
+          </li>
+            <li>
+            <a href="#cars">Lidar Visualization</a>
+
+          </li>
           <!--
             <li>
             <a href="#devboard">Devboard</a>
