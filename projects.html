@@ -141,6 +141,12 @@
             
             
             <div class="list-group">
+                <a href= "#pilights1" class="list-group-item list-group-item-info">
+                Distributed Light Controller Prototyping<span class="badge pull-right">April 2019-July 2019</span>
+                </a>
+                <a href= "#audiomixer" class="list-group-item list-group-item">
+                FPGA Digital Audio Mixer <span class="badge pull-right">January 2019-March 2019</span>
+                </a>
                 <a href= "#space584" class="list-group-item list-group-item-info">
                 High Altitude Balloon Controller <span class="badge pull-right">January 2018-April 2018</span>
                 </a>
@@ -215,6 +221,181 @@
             
         </div>
         
+        <hr />
+        <div class="row">
+        <div class="col-sm-12"><a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top <i class="fa fa-arrow-up" aria-hidden="true"></i></a></div>
+        </div>
+        
+        <a id="pilights1" class="anchor-project"></a>
+        <div class="panel panel-default">
+             <div class="panel-heading">
+                <h3>
+            <b>Distributed Light Controller Prototyping</b> <span class="badge pull-right">April 2019-July 2019</span>
+            </h3>   
+
+            </div>
+            <ul class="list-group">
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Project Overview</b></h4>
+                    <p class="list-group-item-text">Following from my fascination with WS2812 addressable LEDs, I wanted to add controllable lights to my home. I set out to create a proof of concept project that would enable me to control light strings from a web browser, allowing anyone in my home to change the lights.</p>
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Hardware Overview</b></h4>
+                    <p class="list-group-item-text">The light controller is a daughterboard for a Raspberry Pi Zero W. Power to the lights is controlled through a transistor. Additional sensors on the daughterboard are available to monitor the environment.</p>
+                    
+                    
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Software Overview</b></h4>
+                    <p class="list-group-item-text">The website is a Flask web server. Button clicks cause Javascript callbacks to update the server with new commands. The server application will publish command updates to an MQTT broker, hosted on the same computer as the server. The MQTT broker then routes the command to the appropriate device.</p>
+                    
+                    
+                </li>
+                
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Files</b></h4>
+                    
+                    <div class="row">
+                    
+                    
+                    <div class="col-sm-3">
+                    <a href="project-files/distlights/schematic.pdf">Schematic<i class="fa fa-microchip" aria-hidden="true"></i></a>    
+                    </div>
+                    
+                    </div>
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Pictures</b></h4>
+                    
+                    <div class="row align-items-center">
+                        
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/distlights/64651925_2222294964551032_336471.gif">
+                                <img src="project-files/distlights/64651925_2222294964551032_336471.gif"></a>
+                                <div class="caption">Light wheel behind my TV stand</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/distlights/assembled_pcb.jpg">
+                                <img src="project-files/distlights/assembled_pcb.jpg"></a>
+                                <div class="caption">Assembled Printed Circuit Board with Raspberry Pi Zero attached</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/distlights/web.png">
+                                <img src="project-files/distlights/web.png"></a>
+                                <div class="caption">Light wheel behind my TV stand</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </li>
+                
+                
+            </ul>
+            
+        </div>
+            
+            
+            
+            
+        <hr />
+        <div class="row">
+        <div class="col-sm-12"><a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i> Back to top <i class="fa fa-arrow-up" aria-hidden="true"></i></a></div>
+        </div>
+        
+        <a id="audiomixer" class="anchor-project"></a>
+        <div class="panel panel-default">
+             <div class="panel-heading">
+                <h3>
+            <b>FPGA Digital Audio Mixer</b> <span class="badge pull-right">January 2019-March 2019</span>
+            </h3>   
+
+            </div>
+            <ul class="list-group">
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Project Overview</b></h4>
+                    <p class="list-group-item-text">I have an old computer at my desk I use to watch videos while I'm working on projects. Sometimes I would like to hear sound from both devices, so I resolved to build an audio mixer. Wanting to review some FPGA fundamentals, I decided to implement this with digital logic.</p>
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Hardware Overview</b></h4>
+                    <p class="list-group-item-text">The core of the project is a Microsemi SmartFusion2 SoC, a Cortex-M3 microcontroller connected to FPGA fabric. The SmartFusion2 is connected to 3 I2S ADCs sampling from 3.5mm audio jacks (like connecting to the aux port in a car), and one I2S DAC and amplifier to power headphone output. Additionally, it's connected to four rotary encoders that could be used to control volume, and a set of dip switches that can be used for configuration. Additionally, an ESP8266 is connected with SPI for a future upgrade path to pass audio over the internet. </p>
+                    
+                    
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Software Overview</b></h4>
+                    <p class="list-group-item-text">The Cortex-M3 processor in the SmartFusion2 performs initialization tasks. This initialization script is written in C, built with the Microsemi supplied hardware abstraction code. The Microsemi tool SoftConsole was used to develop, build, and deploy the software. The I2S DAC needs registers set over I2C to put it in the correct mode, including configuring it to act as an I2S master, setting the clock speed, setting the volume, and setting the clock speed.</p>
+                    
+                    
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading">
+                    <b>Firmware Overview</b></h4>
+                    <p class="list-group-item-text">The firmware is written in Verilog and built and deployed with the Microsemi tool Libero. The firmware generates a master clock to send to the I2S ADCs and DAC, and reads the bit clock and word clock generated by the DAC. This bit clock and word clock is passed through the FPGA to the ADCs. As the ADCs generate data, the firmware reads the values, merges them with the other channels, and passes te result back to the I2S DAC. </p>
+                
+                </li>
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Files</b></h4>
+                    
+                    <div class="row">
+                    
+                    
+                    <div class="col-sm-3">
+                    <a href="project-files/fpgamixer/schematic.pdf">Schematic<i class="fa fa-microchip" aria-hidden="true"></i></a>    
+                    </div>
+                    
+                    </div>
+                </li>
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Pictures</b></h4>
+                    
+                    <div class="row align-items-center">
+                        
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
+                              <a data-fancybox href="project-files/fpgamixer/assembled.jpg">
+                                <img src="project-files/fpgamixer/assembled.jpg"></a>
+                                <div class="caption">Assembled Printed Circuit Board</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </li>
+                
+                
+                <li class="list-group-item">
+                    <h4 class="list-group-item-heading"><b>Failures and Lessons Learned</b></h4>
+                    <p class="list-group-item-text">This project was an exercise in re-learning the basics of FPGA design, and reviewing practical "high-speed" (40MHz) signal layout concerns. It took a lot of testing and re-designs to create a more complete understanding of the correct way to pass signals through multiple clock domains.</p>
+                    
+                </li>
+                
+                
+            </ul>
+            
+        </div>
+            
             
         <hr />
         <div class="row">
@@ -520,6 +701,14 @@
                         
                         <div class="col-xs-6 col-md-3">
                             <div class="thumbnail">
+                              <a data-fancybox href="project-files/eecs473/processing.PNG">
+                                <img src="project-files/eecs473/processing.PNG"></a>
+                                <div class="caption">Pipeline of data from sampling to detection with logistic regression classifier. The bottom graph section shows a binary detection of EMG motion events. This particular sample set is detecting with 100% accuracy.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-6 col-md-3">
+                            <div class="thumbnail">
                               <a data-fancybox href="project-files/eecs473/emg.png">
                                 <img src="project-files/eecs473/emg.png"></a>
                                 <div class="caption">Sample (early testing) classification of electromyography events</div>
@@ -568,29 +757,18 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Project Overview</b></h4>
-                    <p class="list-group-item-text">In MECHENG 599: Self-Driving Cars, the final project involved using deep learning to count the number of cars in sets of camera images generated from the course staff from a video game. An optional section stage of the project involved image segmentation of the cars with an estimate of their distance. A lidar point could was provided with the same timestamp as a camera image to provide supplemental information. Our teams proposed solution involved projecting the lidar point cloud into the camera frame and generating a filled depth map in the same resolution of the camera to train on.</p>
+                    <p class="list-group-item-text">In MECHENG 599: Self-Driving Cars, the final project involved using deep learning to count the number of cars in sets of camera images generated from the course staff from a video game. An optional section stage of the project involved image segmentation of the cars with an estimate of their distance. A LIDAR point could was provided with the same timestamp as a camera image to provide supplemental information. Our teams proposed solution involved projecting the LIDAR point cloud into the camera frame and generating a filled depth map in the same resolution of the camera to train on.</p>
                 </li>
                 
-
-                <li class="list-group-item">
-                    <h4 class="list-group-item-heading"><b>Project Motivation</b></h4>
-                    <p class="list-group-item-text">Text Here</p>
-                </li>
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Software Overview</b></h4>
-                    <p class="list-group-item-text">Text Here</p>
+                    <p class="list-group-item-text">A 3D LIDAR point cloud and a camera projection matrix were provided. My script took each point cloud and used the projection matrix to align a representation of the point cloud with a corresponding camera image. The distance from camera was used to create a visual representation of depth in grayscale to compare against the camera image. A nearest-neighbor interpolation was applied to groups of pixels to estimate how the spaces between the LIDAR point measurements should be filled in. Different size blocks were selected as a tradeoff between processing time and accuracy of representation.</p>
                     
                     
                 </li>
                 
                 
-                <li class="list-group-item">
-                    <h4 class="list-group-item-heading"><b>My Contributions</b></h4>
-                    <p class="list-group-item-text">Text here</p>
-                    
-                    
-                </li>
                 
                 
                 
@@ -643,10 +821,7 @@
                 </li>
                 
                 
-                <li class="list-group-item">
-                    <h4 class="list-group-item-heading"><b>Failures and Lessons Learned</b></h4>
-                    <p class="list-group-item-text">Text here</p>
-                </li>
+                
                 
                 
             </ul>
