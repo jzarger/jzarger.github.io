@@ -125,7 +125,7 @@
         <div class="row">
         <div class="col-sm-12">
         <h4>This page will highlight some of the projects I've worked on. The top section is a list that will link to more complete sections below.</h4>
-        <h4>These projects are currently sorted chronologically, though I hope to reorder them soon to reflect relative significance.</h4>
+        <h4>These projects are currently sorted chronologically.</h4>
         </div>
         </div>
         
@@ -157,7 +157,7 @@
                 Helmet Sensor Computer Input Controller <span class="badge pull-right">September 2017-December 2017</span>
                 </a>
                 <a href= "#cars" class="list-group-item">
-                Lidar Point Cloud Visualization <span class="badge pull-right">November 2017-December 2017</span>
+                LIDAR Point Cloud Visualization <span class="badge pull-right">November 2017-December 2017</span>
                 </a>
                 <!--
                 <a href="#devboard" class="list-group-item">
@@ -361,7 +361,7 @@
                     
                     
                     <div class="col-sm-3">
-                    <a href="project-files/fpgamixer/schematic.pdf">Schematic<i class="fa fa-microchip" aria-hidden="true"></i></a>    
+                    <a href="project-files/fpgamixer/schematic.pdf">Schematic <i class="fa fa-microchip" aria-hidden="true"></i></a>    
                     </div>
                     
                     </div>
@@ -387,7 +387,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Failures and Lessons Learned</b></h4>
-                    <p class="list-group-item-text">This project was an exercise in re-learning the basics of FPGA design, and reviewing practical "high-speed" (40MHz) signal layout concerns. It took a lot of testing and re-designs to create a more complete understanding of the correct way to pass signals through multiple clock domains.</p>
+                    <p class="list-group-item-text">This project was an exercise in re-learning the basics of FPGA design, and reviewing practical "high-speed" (40MHz) signal layout concerns. It took a lot of testing and re-design to create a more complete understanding of the correct way to pass signals through multiple clock domains in Verilog.</p>
                     
                 </li>
                 
@@ -419,14 +419,14 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Hardware Overview</b></h4>
-                    <p class="list-group-item-text">We used an Atmel SAMD21 microcontroller as the sensor sampling and data logging controller. It was connected to a barometer over SPI, a humidity sensor over I2C, a 9-degree of freedom inertial measurement unit over SPI, a GPS module over UART, a battery level sensor through analog input, a board temperature sensor through analog input, and an external thermistor through analog inpit. It also had two drive circuits for powering two 5W heaters. Power was provided to the microcontroller and sensors by stepping down the battery through a buck converter. The microcontroller was also connected to a SD card for data logging. A footprint for a radio was added for a future live teletry option, but the radio ended up not having enough power to transmit over our desired range (the datasheet said it was 1W, it ended up being closer to 250mW).</p>
+                    <p class="list-group-item-text">We used an Atmel SAMD21 microcontroller as the sensor sampling and data logging controller. It was connected to a barometer over SPI, a humidity sensor over I2C, a 9-degree of freedom inertial measurement unit over SPI, a GPS module over UART, a battery level sensor through analog input, a board temperature sensor through analog input, and an external thermistor through analog input. It also had two drive circuits for powering two 5W heaters. Power was provided to the microcontroller and sensors by stepping down the battery through a buck converter. The microcontroller was also connected to a SD card for data logging. A footprint for a radio was added for a future live telemetry option, but the radio ended up not having enough power to transmit over our desired range (the datasheet said it was 1W, it ended up being closer to 250mW).</p>
                     
                     
                 </li>
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Software Overview</b></h4>
-                    <p class="list-group-item-text">The software implementation was written in the Arduino infrasturcture to speed up the development process. The Arduino language is a mix of C and C++. The code ran in a super-loop architecture, where each sampling task was serviced at a specified interval. A sample for a time instance was placed in a struct and then pushed to the SD card with a time slice in a binary format with a checksum. Once the data was logged, we had a set of Python scripts to convert the logged binary data to a CSV file, that was then processed and plotted with MATLAB.</p>
+                    <p class="list-group-item-text">The software implementation was written in the Arduino infrasturcture to speed up the development process. Initial prototyping used FreeRTOS to schedule sensor sampling and data logging tasks. The flown code ran in a super-loop architecture, where each sampling task was serviced at a specified interval. A sample for a time instance was placed in a struct and then pushed to the SD card with a time slice in a binary format with a checksum. Once the data was logged, we had a set of Python scripts to convert the logged binary data to a CSV file, that was then processed and plotted with MATLAB.</p>
                     
                     
                 </li>
@@ -529,12 +529,12 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Project Overview</b></h4>
-                    <p class="list-group-item-text">As a final project for EECS 561, Digital Control Design, we were asked to choose a real world system and create a digital controller around it. My team chose a segway, as it seemed like a complex and interesting system. The model included segway dynamics and motor dynamics. To keep the scope of the problem bounded, we chose to only model and control the segway in one dimension. We created an architecture for the angle of the segway (how far the handle bar is from vertical) and for the change in lateral position of the segway. Our final project report is attached at the bottom of this section.</p>
+                    <p class="list-group-item-text">As a final project for EECS 561, Digital Control Design, we were asked to choose a real world system and create a digital controller around it. My team chose a Segway, as it seemed like a complex and interesting system. The model included Segway dynamics and motor dynamics. To keep the scope of the problem bounded, we chose to only model and control the Segway in one dimension. We created an architecture for the angle of the Segway (how far the handle bar is from vertical) and for the change in lateral position of the Segway. Our final project report is attached at the bottom of this section.</p>
                 </li>
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Control Overview</b></h4>
-                    <p class="list-group-item-text">We architected two controllers for this project. The first was an inner loop/outer loop controller, where segway angle was the inner loop and lateral position was the outer loop. The second was a full-state feedback LQR controller with an integrator augment and estimator for disturbance rejection. Process noise, measurement noise, and step disturbances were added to this model to test robustness. Full-state feedback was required for this model to accomodate significant deficiencies in the model we found, and the estimator was designed with pole placement for the same reason.</p>
+                    <p class="list-group-item-text">We architected two controllers for this project. The first was an inner loop/outer loop controller, where Segway angle was the inner loop and lateral position was the outer loop. The second was a full-state feedback LQR controller with an integrator augment and estimator for disturbance rejection. Process noise, measurement noise, and step disturbances were added to this model to test robustness. Full-state feedback was required for this model to accommodate significant deficiencies in the model we found, and the estimator was designed with pole placement for the same reason.</p>
                     
                     
                 </li>
@@ -623,7 +623,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Hardware Overview</b></h4>
-                    <p class="list-group-item-text">The project was the combination of several pieces of hardware. The primary control computer was a Raspberry Pi single board computer running Linux. This board interfaced with the video and microphone systems. The Raspberry Pi interfaced with a custom printed circit board data acquisition and processing board that had analog circuitry for the electromyograpy electrodes and a connection to the SPI controlled inertial measurement unit. THe sampling and data control was performed with an STM32M7 family microcontroller. The schematic in the Files section describes this printed circuit board.</p>
+                    <p class="list-group-item-text">The project was the combination of several pieces of hardware. The primary control computer was a Raspberry Pi single board computer running Linux. This board interfaced with the video and microphone systems. The Raspberry Pi interfaced with a custom printed circuit board data acquisition and processing board that had analog circuitry for the electromyograpy electrodes and a connection to the SPI controlled inertial measurement unit. THe sampling and data control was performed with an STM32M7 family microcontroller. The schematic in the Files section describes this printed circuit board.</p>
                     
                     
                 </li>
@@ -631,7 +631,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Software Overview</b></h4>
-                    <p class="list-group-item-text">My focus on the project was the electromyography and the inertial sensing. For the electromyograpy signals, a logistic regression based classifier was trained on the desired events and the trained results were used to capture muscle motion events in read time to trigger mouse motion. The inertial sensing used a simple threshold around a deadzone on the X and Y acceleration axes to determine how much mouse motion should occur.</p>
+                    <p class="list-group-item-text">My focus on the project was the electromyography and the inertial sensing. For the electromyography signals, a logistic regression based classifier was trained on the desired events and the trained results were used to capture muscle motion events in read time to trigger mouse motion. The inertial sensing used a simple threshold around a deadzone on the X and Y acceleration axes to determine how much mouse motion should occur.</p>
                     
                     
                 </li>
@@ -668,8 +668,8 @@
                         
                         <div class="col-xs-6 col-md-3">
                             <div class="thumbnail">
-                              <a data-fancybox href="project-files/eecs473/3d.png">
-                                <img src="project-files/eecs473/3d.png"></a>
+                              <a data-fancybox href="project-files/eecs473/3d.PNG">
+                                <img src="project-files/eecs473/3d.PNG"></a>
                                 <div class="caption">3D CAD of board</div>
                             </div>
                         </div>
@@ -730,7 +730,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Failures and Lessons Learned</b></h4>
-                    <p class="list-group-item-text">I made a bad assumption about part availibility, and ended up having to choose a different microcontroller model at the very last minute. This change necessitated re-doing a significant chunk of the schematic and board layout.
+                    <p class="list-group-item-text">I made a bad assumption about part availability, and ended up having to choose a different microcontroller model at the very last minute. This change necessitated re-doing a significant chunk of the schematic and board layout.
                     </p>
                     <p class="list-group-item-text">We also discovered significant issues working with the electromyography probes. I didn't build in an adequate front end for common mode dissipation, and we had issues with the probes making poor (or no) contact with the face. We eventually mitigated these with software and with careful practice attaching the electrodes.</p>
                 </li>
@@ -901,7 +901,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Electronics Architecture</b></h4>
-                    <p class="list-group-item-text">The architecture disgram in Files and in Pictures below shows how parts are connected.</p>
+                    <p class="list-group-item-text">The architecture diagram in Files and in Pictures below shows how parts are connected.</p>
                     <p></p>
                     <p class="list-group-item-text">The primary device in this project was the Microsemi Smartfusion microcontroller/FPGA SoC. We used a chipset in the same family for in-class labs, and were therefore encouraged to use this device as the main processor for our project. The microcontroller has an ARM Cortex-M3 processor, connected to FPGA fabric through an APB bus.</p>
                     <p></p>
@@ -909,7 +909,7 @@
                     <p></p>
                     <p class="list-group-item-text">The device was powered by a single-cell lithium ion battery. Low dropout linear regulators were used to power the systems on the device from the battery. The microcontroller monitored the current battery state using a battery monitoring chip through I2C.</p>
                     <p></p>
-                    <p class="list-group-item-text">The device communicated wirelessly to a remote laptop through Bluetooth. The hobbiest standard HC-05 Bluetooth module was chosen for this project. It communicates with the Smartfusion SoC through UART.</p>
+                    <p class="list-group-item-text">The device communicated wirelessly to a remote laptop through Bluetooth. The hobby-user standard HC-05 Bluetooth module was chosen for this project. It communicates with the Smartfusion SoC through UART.</p>
                     
                     
                 </li>
@@ -1038,14 +1038,14 @@
                     <h4 class="list-group-item-heading"><b>Project Motivation</b></h4>
                     <p class="list-group-item-text">The first project was an introduction to building robots using foamcoare and tape, to posable programming, and to using the provided software libraries to control what we built.</p>
                     <p></p>
-                    <p class="list-group-item-text">The second project was an introduction to controlling a robot with very limited sensor data,  handling error in a dead-reckoning scenario, and trying to build a robot that behaves conssitently enough to model the error.</p>
+                    <p class="list-group-item-text">The second project was an introduction to controlling a robot with very limited sensor data,  handling error in a dead-reckoning scenario, and trying to build a robot that behaves consistently enough to model the error.</p>
                     <p></p>
                     <p class="list-group-item-text">The first project was an introduction to inverse and forward kinematics, working with rotating frames, and building robots that compensate for gravity.</p>
                 </li>
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Software Architecture</b></h4>
-                    <p class="list-group-item-text">In this class, we used Python to control the robots. The acutators were connected to a laptop running this Python software through a tether. The professor running the class provided us with Python libraries to communicate with the actuators, as well as some base code for generating tasks to run in parallel, and for developing with posable programming.</p>
+                    <p class="list-group-item-text">In this class, we used Python to control the robots. The actuators were connected to a laptop running this Python software through a tether. The professor running the class provided us with Python libraries to communicate with the actuators, as well as some base code for generating tasks to run in parallel, and for developing with posable programming.</p>
                     
                     
                 </li>
@@ -1142,18 +1142,18 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Project Motivation</b></h4>
-                    <p class="list-group-item-text">Inspired by the way a dog or a cat would chase after a laser pointer, we wanted our project to be fun to watch and interact with. We designed it to have fast and reliable laser detection algorithms with image processessing, and designed our own chassis out of a printed circuit board so that we could have motors that would be able to follow the laser as fast as we could detect it.
+                    <p class="list-group-item-text">Inspired by the way a dog or a cat would chase after a laser pointer, we wanted our project to be fun to watch and interact with. We designed it to have fast and reliable laser detection algorithms with image processing, and designed our own chassis out of a printed circuit board so that we could have motors that would be able to follow the laser as fast as we could detect it.
                 </li>
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Electronics Architecture</b></h4>
-                    <p class="list-group-item-text">The architecture disgram in Pictures below shows how parts are connected.</p>
+                    <p class="list-group-item-text">The architecture diagram in Pictures below shows how parts are connected.</p>
                     <p></p>
                     <p class="list-group-item-text">The primary device in this project was a Raspberry Pi 3 single board computer. It was connected to a camera to search for the laser, and connected to a microprocessor through UART.</p>
                     <p></p>
                     <p class="list-group-item-text">The Raspberry PI connected to an Atmel SAMD21 microcontroller. This microcontroller drove the motors at the desired speed, determined wheel speed from the encoders, and used infrared distance sensors to avoid colliding with the walls.</p>
                     <p></p>
-                    <p class="list-group-item-text">The microcontroller interacted with two H-Bridge ICs, which were connected to the motors. The ICs had integrated transistors and gate drive circuity, as well as debugging and fault detection over SPI.</p>
+                    <p class="list-group-item-text">The microcontroller interacted with two H-Bridge ICs, which were connected to the motors. The ICs had integrated transistors and gate drive circuitry, as well as debugging and fault detection over SPI.</p>
                     <p></p>
                     <p class="list-group-item-text">The microcontroller was connected to four analog infrared measurement sensors, one on each corner of the robot chassis. They output a voltage proportional to their distance to a wall, and had a range that allowed to robot to have an accurate estimate of it's location relative to the walls around it.</p>
                     <p></p>
@@ -1163,7 +1163,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Software Architecture</b></h4>
-                    <p class="list-group-item-text">The software for the microprocessor was based on the Arduino platform, which is mostly C with some C++. The microcontroller had interrupts set up to trigger for the encoders. When those weren't triggering, the robot used it's internal state model to estimate where it was relative to the last known location of the laser. It listened over UART for messages from the Raspberry Pi image processing software for new laser location estimations. A closed-loop controller was used to zero the error in the difference between the current location estimate and the location of the laser.</p>
+                    <p class="list-group-item-text">The software for the microprocessor was based on the Arduino platform, which is derived from C++. The microcontroller had interrupts set up to trigger for the encoders. When those weren't triggering, the robot used it's internal state model to estimate where it was relative to the last known location of the laser. It listened over UART for messages from the Raspberry Pi image processing software for new laser location estimations. A closed-loop controller was used to zero the error in the difference between the current location estimate and the location of the laser.</p>
                     <p></p>
                     <p class="list-group-item-text">The Raspberry Pi ran Python software to perform the image processing. The software ran on four different process threads. The first collected images from the camera. The second and third threads used OpenCV to determine where the laser was relative to the robot. The fourth thread transmitted the laser location to the microprocessor over UART.</p>
                     
@@ -1275,12 +1275,12 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Project Motivation</b></h4>
-                    <p class="list-group-item-text">The initial version of control for this project was a temporary solution built on a perboard that would not be able to survive a flight. The hope of this project was to design a system that would would be able to be used in flight.
+                    <p class="list-group-item-text">The initial version of control for this project was a temporary solution built on a perfboard that would not be able to survive a flight. The hope of this project was to design a system that would be able to be used in flight.
                 </li>
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Electronics Architecture</b></h4>
-                    <p class="list-group-item-text">The architecture disgram in Pictures below shows how parts are connected.</p>
+                    <p class="list-group-item-text">The architecture diagram in Pictures below shows how parts are connected.</p>
                     <p></p>
                     <p class="list-group-item-text">The primary device in this project was an Atmel SAMD21 microcontroller. It interfaced with all of the sensors, and the servo and solenoid control.</p>
                     <p></p>
@@ -1288,7 +1288,7 @@
                     <p></p>
                     <p class="list-group-item-text">The microcontroller is connected to two motion measurement sensors and a barometer. One is a 9 degree of freedom inertial measurement unit over I2C, one is a two degree of freedom accelerometer over SPI. THe barometer is also connected over SPI.</p>
                     <p></p>
-                    <p class="list-group-item-text">A GPS module was also added to this project. It has a built in ceramic antenna, and communicates with the microcontroller over UART. A slot was added onto the board for an XBee wireless radio module. MASA owns several 100mW 900MHz modules that can be used to get telemetry from a serval mile distance. The microcontroller communicates with this module over UART as well.</p>
+                    <p class="list-group-item-text">A GPS module was also added to this project. It has a built-in ceramic antenna, and communicates with the microcontroller over UART. A slot was added onto the board for an XBee wireless radio module. MASA owns several 100mW 900MHz modules that can be used to get telemetry from a serval mile distance. The microcontroller communicates with this module over UART as well.</p>
                     <p></p>
                     <p class="list-group-item-text">The system was designed to be powered from a number of different sources. A 3 cell or 4 cell lithium polymer battery (for powering the solenoids), a 2 cell lithium polymer battery (for powering the servo), or through USB for debugging.</p>
                     
@@ -1296,7 +1296,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Software Architecture</b></h4>
-                    <p class="list-group-item-text">The software for the microprocessor was based on the Arduino platform, which is mostly C with some C++. </p>
+                    <p class="list-group-item-text">The software for the microprocessor was based on the Arduino platform, which is derived from C++. </p>
                     
                     
                 </li>
@@ -1536,7 +1536,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Project Motivation</b></h4>
-                    <p class="list-group-item-text">As the final project for a flight software systems class, this project needed to show a grasp on a set of relevant flight software skills. These included real time software development, control system design, guidance/navigation design, debugging, and testing.</p>
+                    <p class="list-group-item-text">As the final project for a flight software systems class, this project needed to show a grasp on a set of relevant flight software skills. These included real-time software development, control system design, guidance/navigation design, debugging, and testing.</p>
                 </li>
                 
                 
@@ -1761,7 +1761,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Software Architecture</b></h4>
-                    <p class="list-group-item-text">This project was written in C on an embedded Linux platform. There were several different threads in the program that handled different tasks. One thread polled the analog-to-digital converted on the microcontroller to get updated magnetometer and gyroscape measurements. Another thread handled the state model of Tablesat, and used it to determine how the motor control inputs should change based on the desired speed or position. This thread also performed significant low pass filtering on the measurments, especially on the magnetomer to compensate for the added noise from the motors.</p>
+                    <p class="list-group-item-text">This project was written in C on an embedded Linux platform. There were several different threads in the program that handled different tasks. One thread polled the analog-to-digital converted on the microcontroller to get updated magnetometer and gyroscope measurements. Another thread handled the state model of Tablesat, and used it to determine how the motor control inputs should change based on the desired speed or position. This thread also performed significant low pass filtering on the measurements, especially on the magnetometer to compensate for the added noise from the motors.</p>
                     
                     
                 </li>
@@ -1810,7 +1810,7 @@
                                 <a data-fancybox href="project-files/aero450tablesat/pointing.PNG">
                                 <img src="project-files/aero450tablesat/pointing_tn.jpg"></a>
                               
-                                <div class="caption">Results of a Working Feedback Pointing Controller Using The Magnetometer. The top plot shows the internal estimate of angular positon (validated manually), the middle plot is angular velocity over time, and the bottom plot is fan input voltage.</div>
+                                <div class="caption">Results of a Working Feedback Pointing Controller Using The Magnetometer. The top plot shows the internal estimate of angular position (validated manually), the middle plot is angular velocity over time, and the bottom plot is fan input voltage.</div>
                             </div>
                         </div>
                         
@@ -1907,7 +1907,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Project Overview</b></h4>
-                    <p class="list-group-item-text">During the initial development process of MASA's first hybrid engine, the first instrumentation system had been developed in an environment of constantly changing requirements. It was messly, poorly wired, impossible to debug or repair without taking it all apart, and had no supporting documentation. I led the project to reorganize and restructure our instrumentation to improve on those issues.</p>
+                    <p class="list-group-item-text">During the initial development process of MASA's first hybrid engine, the first instrumentation system had been developed in an environment of constantly changing requirements. It was messy, poorly wired, impossible to debug or repair without taking it all apart, and had no supporting documentation. I led the project to reorganize and restructure our instrumentation to improve on those issues.</p>
                 </li>
                 
                 <li class="list-group-item">
@@ -1917,7 +1917,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Electronics Architecture</b></h4>
-                    <p class="list-group-item-text">The architecture disgram in Pictures below shows how parts are connected. This project is more a documented system of interconnects than an overall design project. It did include building perfboards for strain gauge amplifiers, and power electronics to supply those, as well as routing power and signals for data collection and engine control. We also had to recalibrate and retest all of our sensors.</p>
+                    <p class="list-group-item-text">The architecture diagram in pictures below shows how parts are connected. This project is more a documented system of interconnects than an overall design project. It did include building perfboards for strain gauge amplifiers, and power electronics to supply those, as well as routing power and signals for data collection and engine control. We also had to recalibrate and re-test all of our sensors.</p>
                     
                     
                 </li>
@@ -2020,7 +2020,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Electronics Architecture</b></h4>
-                    <p class="list-group-item-text">The microcontroller used for this project was an Atmel ATtiny85. It was connected to a collection of WS2812B LEDs. It also had a built in infrared transmitter and receiver to enable wireless control. It was all powered from a 5V barrel jack supply, which was run through a 3.3V linear regulator to power the microcontroller.</p>
+                    <p class="list-group-item-text">The microcontroller used for this project was an Atmel ATtiny85. It was connected to a collection of WS2812B LEDs. It also had a built-in infrared transmitter and receiver to enable wireless control. It was all powered from a 5V barrel jack supply, which was run through a 3.3V linear regulator to power the microcontroller.</p>
                     
                 </li>
                 
@@ -2117,7 +2117,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Project Overview</b></h4>
-                    <p class="list-group-item-text">The goal of this project was to design and build the original electrical hardware used to test MASA's first hybrid engine. We needed to be able to remotely control several solenoids and a servo motor, as well as be able to read back a measurement of pressue in our oxidizer tank.</p>
+                    <p class="list-group-item-text">The goal of this project was to design and build the original electrical hardware used to test MASA's first hybrid engine. We needed to be able to remotely control several solenoids and a servo motor, as well as be able to read back a measurement of pressure in our oxidizer tank.</p>
                 </li>
                 
                 
@@ -2138,7 +2138,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Software Architecture</b></h4>
-                    <p class="list-group-item-text">The software for the microprocessor was based on the Arduino platform, which is mostly C with some C++. A serial protocol was defined to communicate state information and commmands between the microcontroller and the MATLAB interface.</p>
+                    <p class="list-group-item-text">The software for the microprocessor was based on the Arduino platform, which is mostly C with some C++. A serial protocol was defined to communicate state information and commands between the microcontroller and the MATLAB interface.</p>
                     
                     
                 </li>
@@ -2205,7 +2205,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Project Overview</b></h4>
-                    <p class="list-group-item-text">The goal of this <b>ENGR 100: Introduction to Engineering</b> project was to design and build a blimp that could complete a race task and a fine manuvering task. We built the balloon out of plastic, the base out of balsa wood, and attached electronics to it.</p>
+                    <p class="list-group-item-text">The goal of this <b>ENGR 100: Introduction to Engineering</b> project was to design and build a blimp that could complete a race task and a fine maneuvering task. We built the balloon out of plastic, the base out of balsa wood, and attached electronics to it.</p>
                 </li>
                 
                 
@@ -2317,7 +2317,7 @@
                 
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading"><b>Project Overview</b></h4>
-                    <p class="list-group-item-text">This was the project I completed as part of earning my Eagle Scout Award. I build a fireword storage structure and a dinosaur dig themed sandbox for Dinosaur Hill Nature Preserve in Rochester Hills, Michigan.</p>
+                    <p class="list-group-item-text">This was the project I completed as part of earning my Eagle Scout Award. I build a firewood storage structure and a dinosaur dig themed sandbox for Dinosaur Hill Nature Preserve in Rochester Hills, Michigan.</p>
                 </li>
                 
                 
@@ -2326,7 +2326,7 @@
                     <h4 class="list-group-item-heading"><b>Project Motivation</b></h4>
                     <p class="list-group-item-text"> This project needed to be substantial, and needed to be designed so that I could show significant leadership. I had grown up visiting Dinosaur Hill constantly, for classes, for camps, and just to walk through the woods. I wanted to give back to them, and they gave me the opportunity to complete this project.</p>
                     <p></p>
-                    <p class="list-group-item-text">As shown in the pictures in the attached report, the old fireword structure was small and on the ground, which was causing their firewood to rot. Dinosaur Hill has regular family bonfires and other events that use their firepit, so it was valuable to them to be able to have more and better treated firewood. </p>
+                    <p class="list-group-item-text">As shown in the pictures in the attached report, the old firewood structure was small and on the ground, which was causing their firewood to rot. Dinosaur Hill has regular family bonfires and other events that use their firepit, so it was valuable to them to be able to have more and better treated firewood. </p>
                     <p></p>
                     <p class="list-group-item-text">As a dinosaur themed nature preserve, they also had a desire for a themed sandbox that passers-by would be able to interact with. They have a much larger one they unlock for special events, but the equipment inside was too valuable to leave out without supervision.</p>
                 </li>
@@ -2398,6 +2398,14 @@
             
         <nav class="col-sm-2 bs-docs-sidebar">
         <ul id="sidebar" class="nav nav-stacked">
+          <li>
+            <a href="#pilights1">Distributed Light Controller Prototyping</a>
+
+          </li>
+          <li>
+            <a href="#audiomixer">FPGA Digital Audio Mixer</a>
+
+          </li>
           <li>
             <a href="#space584">High Altitude Balloon Controller</a>
 
